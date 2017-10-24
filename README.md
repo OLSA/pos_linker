@@ -1,6 +1,6 @@
 # POS Linker
 
-This is linker from ERPNext to local thermal printer.
+This is linker between ERPNext and local thermal printer.
 
 Install pos_linker to erp:
 
