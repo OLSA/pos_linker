@@ -13,7 +13,7 @@ header('Cache-Control: no-cache');
 $development = false;
 
 // metalinker inputfile
-$in_path = 'C:\\In1\\';
+$in_path = 'C:\\In\\';
 // metalinker output file
 $out_path = 'C:\\Out\\';
 
