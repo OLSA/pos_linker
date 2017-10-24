@@ -10,7 +10,7 @@ bench install-app pos_linker
 
 ## Instructions for .php file
 
-This index.php file is receipe .csv writer, and it's need to be installed on host/network where is printer connected.  
+This index.php file is receipe .csv writer, and it's need to be installed on localhost/network where is printer connected.  
 Metalinker read .csv files and send commands to printer.
 
 ### First step: set "Access-Control-Allow-Origin"
