@@ -41,15 +41,15 @@ if(isset($input->items) && !empty($input->items)){
 	// parse items one by one and fill $csv variable
 	foreach($input->items as $item){
 		$csv .= implode(',',
-					   array(
-							$item->item_code,                 // art_id
-							get_tax_id($item->item_tax_rate), // tax_id
-							$item->item_name,                 // art_desc
-							$item->rate,                      // sale_price
-							$item->qty,                       // sale_qty
-							$item->discount_percentage,       // disc_perc
-							)
-						);
+				array(
+					$item->item_code,                 // art_id
+					get_tax_id($item->item_tax_rate), // tax_id
+					$item->item_name,                 // art_desc
+					$item->rate,                      // sale_price
+					$item->qty,                       // sale_qty
+					$item->discount_percentage,       // disc_perc
+					)
+				);
 		$csv .= "\n";
 	}
 
@@ -87,11 +87,11 @@ function get_tax_id( $rates ){
 	$id = '0';
 	// defined taxes ID's by country law
 	$taxes_id = array(
-						'17%' => '0',
-						'0%'  => '1',
-						'7%'  => '2',
-						'19%' => '3'
-					);	
+			'17%' => '0',
+			'0%'  => '1',
+			'7%'  => '2',
+			'19%' => '3'
+		         );	
   
 	$item_rates = json_decode($rates, true); 		
 	if(!empty($item_rates)){		
