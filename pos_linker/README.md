@@ -1,7 +1,9 @@
 ## POS Linker
 
-Connection with local printer
+Connection with ERPNext and local printer  
+support@olsa.me
 
-#### License
+
+#### License  
 
 MIT
