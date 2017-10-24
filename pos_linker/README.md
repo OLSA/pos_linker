@@ -1,7 +1,7 @@
 ## POS Linker
 
-Connection with local printer[D
+Connection with local printer
 
 #### License
 
-'MIT'
+MIT
