@@ -1,6 +1,6 @@
 # POS Linker
 
-This is linker between ERPNext and local thermal printer.
+Connector, or linker between ERPNext on remote location, and thermal printer. Here is used method where existing desktop application read data inside .csv file and send instructions to printer.
 
 Install pos_linker to erp:
 ```
@@ -10,8 +10,7 @@ bench install-app pos_linker
 
 ## Instructions for .php file
 
-This index.php file is receipe .csv writer, and it's need to be installed on localhost/network where is printer connected.  
-Metalinker read .csv files and send commands to printer.
+PHP file is .csv files writer, and it's need to be installed on localhost/network where is printer connected.  
 
 ### First step: set "Access-Control-Allow-Origin"
 Line 9., index.php, need to write correct domain or IP address where is your ERPNext hosted.
