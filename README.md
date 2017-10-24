@@ -19,6 +19,5 @@ Metalinker read .csv files and send commands to printer.
 If Your setup is ok You will noticed "ABC_nnnn.csv" file inside www/pos/index.php
 
 2. test with Metalinker
-* configure $in_path and $out_path to Metalinker working directories
+* configure $in_path and $out_path <b>to Metalinker</b> working directories
 * set $development=false
-NOTE: $in_path is input for Metalinker, and $out_path is folder where Metalinker write log files
