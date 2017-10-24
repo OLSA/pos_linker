@@ -21,3 +21,6 @@ If Your setup is ok You will noticed "ABC_nnnn.csv" file inside www/pos/index.ph
 ### Test with Metalinker (index.php, "development=false")
 * configure $in_path and $out_path <b>to Metalinker</b> working directories
 * set $development=false
+
+### Important NOTE (Access-Control-Allow-Origin)
+Line 9., index.php, You need to write correct domain or IP address where is ERPNext hosted
