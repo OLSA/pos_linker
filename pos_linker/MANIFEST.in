@@ -1,0 +1,18 @@
+include MANIFEST.in
+include requirements.txt
+include *.json
+include *.md
+include *.py
+include *.txt
+recursive-include pos_linker *.css
+recursive-include pos_linker *.csv
+recursive-include pos_linker *.html
+recursive-include pos_linker *.ico
+recursive-include pos_linker *.js
+recursive-include pos_linker *.json
+recursive-include pos_linker *.md
+recursive-include pos_linker *.png
+recursive-include pos_linker *.py
+recursive-include pos_linker *.svg
+recursive-include pos_linker *.txt
+recursive-exclude pos_linker *.pyc
