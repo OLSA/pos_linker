@@ -55,7 +55,7 @@ if(isset($input->items) && !empty($input->items)){
 
 	// write last part of receipe in $csv variable
 	$csv .= 'END_OF_SALE' . ',,' . $end_of_sale_mark . "\n";
-    $pay_mode = strtoupper($input->payments[0]->mode_of_payment);	
+        $pay_mode = strtoupper($input->payments[0]->mode_of_payment);	
 	$csv .= 'PAY_' . $pay_mode . ',,' . $pay_mode . ',' . $input->paid_amount . "\n";
 	$csv .= 'END_OF_PAY' . ',,' . $end_of_pay_mark . "\n";
 	$csv .= 'USER_ID'. ',,' . $user_id . "\n";//$input->user_id
@@ -65,8 +65,8 @@ if(isset($input->items) && !empty($input->items)){
 	
 	// file paths
 	$tmp_path = dirname(__FILE__).'/';
-    $in_path = $development ? $tmp_path : $in_path;
-    $out_path = $development ? $tmp_path : $out_path;
+        $in_path = $development ? $tmp_path : $in_path;
+        $out_path = $development ? $tmp_path : $out_path;
 
 	// write csv file	
 	$csv_handler = fopen ($in_path . get_filename(get_max($out_path)), 'w');
