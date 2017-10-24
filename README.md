@@ -18,6 +18,6 @@ Metalinker read .csv files and send commands to printer.
 * create some receipe (POS) and press Submit  
 If Your setup is ok You will noticed "ABC_nnnn.csv" file inside www/pos/index.php
 
-### Test with Metalinker (index.php, "development=true")
+### Test with Metalinker (index.php, "development=false")
 * configure $in_path and $out_path <b>to Metalinker</b> working directories
 * set $development=false
