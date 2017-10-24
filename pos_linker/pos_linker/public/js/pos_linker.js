@@ -3,7 +3,7 @@
 // support: http://olsa.me
 // version: 1.0
 // date: 10.2017.
-console.log("Evo me u linkeru");
+
 erpnext.pos.PointOfSale.prototype.make_payment_modal = function(){
         this.payment = new Payment({
                 frm: this.frm,
