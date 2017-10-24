@@ -1,6 +1,6 @@
 # POS Linker
 
-Connector, or linker between ERPNext on remote location, and thermal printer. Here is used method where existing desktop application read data inside .csv file and send instructions to printer.
+Connector, or linker between ERPNext on remote location, and local thermal printer. Here is used widely supported method of file sharing. This is working example customised for Metalink application which currently support more than 50 various thermal printer models.
 
 Install pos_linker to erp:
 ```
