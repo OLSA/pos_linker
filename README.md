@@ -1,4 +1,4 @@
-# pos_linker
+# POS Linker
 
 This is linker from ERPNext to local thermal printer.
 
