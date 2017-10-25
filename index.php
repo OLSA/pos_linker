@@ -6,11 +6,11 @@
 
 // Configuration:
 // write allowed domain or IP address
-header('Access-Control-Allow-Origin: http://192.168.174.128:8000');    
+header('Access-Control-Allow-Origin: http://94.130.108.113:8000');    
 header('Cache-Control: no-cache');
 
 // development mode?
-$development = false;
+$development = true;
 
 // metalinker inputfile
 $in_path = 'C:\\In\\';
@@ -41,22 +41,22 @@ if(isset($input->items) && !empty($input->items)){
 	// parse items one by one and fill $csv variable
 	foreach($input->items as $item){
 		$csv .= implode(',',
-				array(
-					$item->item_code,                 // art_id
-					get_tax_id($item->item_tax_rate), // tax_id
-					$item->item_name,                 // art_desc
-					$item->rate,                      // sale_price
-					$item->qty,                       // sale_qty
-					$item->discount_percentage,       // disc_perc
-					)
-				);
+					   array(
+							$item->item_code,                 // art_id
+							get_tax_id($item->item_tax_rate), // tax_id
+							$item->item_name,                 // art_desc
+							$item->price_list_rate,           // sale_price
+							$item->qty,                       // sale_qty
+							get_discount( $item->discount_percentage ) // disc_perc
+							)
+						);
 		$csv .= "\n";
 	}
 
 	// write last part of receipe in $csv variable
 	$csv .= 'END_OF_SALE' . ',,' . $end_of_sale_mark . "\n";
-        $pay_mode = strtoupper($input->payments[0]->mode_of_payment);	
-	$csv .= 'PAY_' . $pay_mode . ',,' . $pay_mode . ',' . $input->paid_amount . "\n";
+    $pay_mode = strtoupper($input->payments[0]->type);	
+	$csv .= 'PAY_' . $pay_mode . ',,' . $input->payments[0]->mode_of_payment . ',' . $input->paid_amount . "\n";
 	$csv .= 'END_OF_PAY' . ',,' . $end_of_pay_mark . "\n";
 	$csv .= 'USER_ID'. ',,' . $user_id . "\n";//$input->user_id
 	$csv .= 'USER_NAME'. ',,' . $input->owner . "\n";
@@ -65,8 +65,8 @@ if(isset($input->items) && !empty($input->items)){
 	
 	// file paths
 	$tmp_path = dirname(__FILE__).'/';
-        $in_path = $development ? $tmp_path : $in_path;
-        $out_path = $development ? $tmp_path : $out_path;
+    $in_path = $development ? $tmp_path : $in_path;
+    $out_path = $development ? $tmp_path : $out_path;
 
 	// write csv file	
 	$csv_handler = fopen ($in_path . get_filename(get_max($out_path)), 'w');
@@ -87,11 +87,11 @@ function get_tax_id( $rates ){
 	$id = '0';
 	// defined taxes ID's by country law
 	$taxes_id = array(
-			'17%' => '0',
-			'0%'  => '1',
-			'7%'  => '2',
-			'19%' => '3'
-		         );	
+						'17%' => '0',
+						'0%'  => '1',
+						'7%'  => '2',
+						'19%' => '3'
+					);	
   
 	$item_rates = json_decode($rates, true); 		
 	if(!empty($item_rates)){		
@@ -124,4 +124,10 @@ function get_filename($max){
 	}
     $out = str_pad( $out, 4, "0", STR_PAD_LEFT );	
     return 'ABC_'.$out.'.csv';	
+}
+
+// return discount
+function get_discount( $discount ){
+	
+	return ($discount > 0 && $discount <= 100) ? '-' . $discount : '0';
 }
